@@ -18,16 +18,19 @@ def download(argv):
 		print("Expected less arguments!")
 		return
 
-	call = "..\libs\youtube-dl "
+	call = "..\libs\youtube-dl"
 
-	call += argv[0]
+	if(argc > 2):
+		if(argv[2] in audio_formats):
+			call += " --extract-audio --audio-format " + argv[2]
+
+	call += " " + argv[0]
 
 	if(argc > 1):
 		call += " -o " + argv[1]
 
-		if(argc > 2):
-			if(argv[2] in audio_formats):
-				call += " --extract-audio --audio-format " + argv[2]
-
-	
+		
+	print(call)
 	os.system(call)
+
+download(["https://www.youtube.com/watch?v=Ce8p0VcTbuA", "Chopin.%(ext)s" , "mp3"])
