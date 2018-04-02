@@ -1,22 +1,33 @@
 import os
-from sys import argv
 
-def main():
+#arg values
+#1 -> link
+#2 -> output_name
+#3 -> switch (format)
+
+def download(argv):
+
+	audio_formats = ["mp3", "aac", "m4a", "flac"]
+	video_formats = []
 	
-	arg = argv[1:]
-	if (len(arg) < 1):
+	argc = len(argv)
+	if (argc < 1):
 		print("Please provide a link!")
 		return
-	elif(len(arg) > 3):
+	elif(argc > 3):
 		print("Expected less arguments!")
 		return
 
 	call = "..\libs\youtube-dl "
 
-	while(arg):
-		call += arg[0] + " "
-		arg = arg[1:]
+	call += argv[0]
 
+	if(argc > 1):
+		call += " -o " + argv[1]
+
+		if(argc > 2):
+			if(argv[2] in audio_formats):
+				call += " --extract-audio --audio-format " + argv[2]
+
+	
 	os.system(call)
-
-main()
