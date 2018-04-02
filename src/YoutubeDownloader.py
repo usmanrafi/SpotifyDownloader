@@ -32,5 +32,3 @@ def download(argv):
 		
 	print(call)
 	os.system(call)
-
-download(["https://www.youtube.com/watch?v=Ce8p0VcTbuA", "Chopin.%(ext)s" , "mp3"])
