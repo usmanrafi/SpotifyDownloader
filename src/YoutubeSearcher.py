@@ -4,14 +4,14 @@ import urllib.request as req
 import YoutubeDownloader as ytdl
 
 def dl(link, name, output="mp4"):
-	ytdl.download(["https://www.youtube.com/watch?v=Ce8p0VcTbuA", "Chopin.%(ext)s" , "mp3"])
+	ytdl.download(link, name , output)
 
 
-def main(name):
+def main(name, output="mp4"):
 
 	url = "https://www.youtube.com/results?search_query="
-	name = name.split(' ')
-	for word in name:
+	query = name.split(' ')
+	for word in query:
 		url += word + "+"
 	url = url[:-1]	# removing the last +
 
@@ -20,7 +20,7 @@ def main(name):
 
 	vid = soup.findAll(attrs={'class':'yt-uix-tile-link'})[0]
 		
-	print ('https://www.youtube.com' + vid['href'])
-	
+	link = 'https://www.youtube.com' + vid['href']
+	dl(link, name, output)
 
-main("Mad World")
+main("Dreams Chrisitine Noel")
