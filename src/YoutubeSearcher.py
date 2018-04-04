@@ -7,7 +7,7 @@ def dl(link, name, output="mp4"):
 	ytdl.download(link, name , output)
 
 
-def main(name, output="mp4"):
+def searchAndDl(name, output="mp4"):
 
 	url = "https://www.youtube.com/results?search_query="
 	query = name.split(' ')
@@ -22,5 +22,3 @@ def main(name, output="mp4"):
 		
 	link = 'https://www.youtube.com' + vid['href']
 	dl(link, name, output)
-
-main("Dreams Chrisitine Noel")
