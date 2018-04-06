@@ -1,3 +1,3 @@
-import YoutubeSearher as search
+import YoutubeSearcher as search
 
-search.searchAndDl("Dermot Kennedy Young and Free")
+search.searchAndDl("Fake Plastic Trees", "mp3")
