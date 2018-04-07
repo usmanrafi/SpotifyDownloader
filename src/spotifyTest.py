@@ -29,4 +29,4 @@ artists_name = details["artists"][0]["name"]
 print(song_name)
 print(artists_name)
 
-yt.searchAndDl(artists_name + " " + song_name, "mp3")
+yt.searchAndDl(artists_name + " " + song_name)

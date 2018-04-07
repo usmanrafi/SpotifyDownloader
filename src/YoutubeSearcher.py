@@ -3,11 +3,11 @@ import urllib.request as req
 
 import YoutubeDownloader as ytdl
 
-def dl(link, name, output="mp4"):
+def dl(link, name, output):
 	ytdl.download(link, name , output)
 
 
-def searchAndDl(name, output="mp4"):
+def searchAndDl(name, output="mp3"):
 
 	url = "https://www.youtube.com/results?search_query="
 	query = name.split(' ')
