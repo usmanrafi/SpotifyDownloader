@@ -1,4 +1,3 @@
-import bs4
 import urllib.request as req
 
 import YoutubeDownloader as ytdl
@@ -15,10 +14,14 @@ def searchAndDl(name, output="mp3"):
 		url += word + "+"
 	url = url[:-1]	# removing the last +
 
-	src = req.urlopen(url)
-	soup = bs4.BeautifulSoup(src, 'lxml')
+	src = req.urlopen(url).read()
+	src = str(src)
 
-	vid = soup.findAll(attrs={'class':'yt-uix-tile-link'})[0]
+	#acquiring the first link
+	vid = src[src.find("/watch?v="):]
+	vid = vid[:vid.find("\"")]
 		
-	link = 'https://www.youtube.com' + vid['href']
+	link = 'https://www.youtube.com' + vid 
+
+	print(link)
 	dl(link, name, output)
