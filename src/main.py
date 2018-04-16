@@ -1,3 +1,3 @@
-import YoutubeSearcher as search
+import SpotifyHelper as spotify
 
-search.searchAndDl("Fake Plastic Trees", "mp3")
+spotify.download()
